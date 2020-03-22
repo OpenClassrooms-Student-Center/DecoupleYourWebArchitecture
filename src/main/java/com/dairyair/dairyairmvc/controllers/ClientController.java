@@ -74,7 +74,13 @@ public class ClientController {
     
  	@RequestMapping("/clients/owe")
  	public String clientOwe( Model model) {
-        model.addAttribute("clients", clientRepository.findByOustandingBalanceGreaterThan(0.0));
+        model.addAttribute("clients", clientRepository.findByOustandingBalanceGreaterThan(150.0));
+ 		return "clients";
+ 	}
+    
+ 	@RequestMapping("/clients/owe-lots")
+ 	public String clientOweLots( Model model) {
+        model.addAttribute("clients", clientRepository.findByOustandingBalanceGreaterThan(150.0));
  		return "clients";
  	}
 }
